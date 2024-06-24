@@ -1,32 +1,23 @@
-# **NK-980IoTG2 / NK-980IoTG2D**
+# **NK-980IoTG2 / NK-980IoTG1D**
 
 ## 1. **Introduction**
 
-The NuMaker-IIoT-NUC980G2(D) is an evaluation board based on Arm ARM926EJ-S microprocessor
-NUC980DK71YC which has rich peripherals to help users to design-in their products or application
-systems easily. In addition, the NuMaker-IIoT-NUC980G2 uses NUC980DK71YC microprocessor which
-runs up to 300 MHz with built-in 128 MB DDR2 memory, 16 KB I-cache, 16 KB D-cache and MMU, 16
-KB embedded SRAM and 16.5 KB IBR (Internal Boot ROM) for system booting from USB, SPI NAND
-Flash and SD/EMMC. All functions of the NUC980DK71YC are placed on the board, including peripheral
-interfaces such as memory (SPI NAND Flash, eMMC, SD), UART, Audio controller (NAU88C22YG),
-10/100 Mbps Ethernet MAC controller, high speed USB (device, HOST), JTAG, CAN and EBI.
-Furthermore, the board provides Arduino Uno compatible interface for expansion. You can use it to
-develop and verify applications to emulate the real behavior.
+ Nuvoton Technology provides industrial IoT development platform using NUC980DK microprocessor, which is an industrial IoT open platform, including complete hardware design and software reference design. The platform is powered by Nuvoton ARM9 MPU with a 300 MHz internal speed and up to 128 MB DDR memory, single 10/100 Ethernet port, 2 high-speed USB hosts, 1 Gb SPI NAND Flash memory, microphone input, stereo headphone output and Arduino compatible interface. The platform supports embedded Linux OS which provides all IoT protocols you need, such as AWS Client / MQTT / Web Server, etc., users can use this platform to quickly develop a plenty of IoT applications.
 
-|NK-980IOTG2|NK-980IOTG2D|
+|NK-980IOTG1|NK-980IOTG1D|
 |--|--|
-|<img src="./figures/nk-980iotg2.png" alt="fishy" class="bg-primary" width="80%">|<img src="./figures/nk-980iotg2d.png" alt="fishy" class="bg-primary" width="100%">|
+|<img src="./figures/nk-980iotg1.png" alt="fishy" class="bg-primary" width="80%">|<img src="./figures/nk-980iotg1d.png" alt="fishy" class="bg-primary" width="100%">|
 
-**NK-980IOTG2D is with ILI9341 SPI TFT panel with RTP touching function**
+**NK-980IOTG1D is with ILI9341 SPI TFT panel with RTP touching function**
 
 ### 1.1 **MCU specification**
 
 |  | Features |
 | -- | -- |
-| Part NO. | NUC980DK71YC |
+| Part NO. | NUC980DK63YC  |
 | CPU ARCH. | 32-bit ARM926EJ-STM |
 | Operation frequency | 300 MHz |
-| Embedded SDRAM size | Built-in 128MB |
+| Embedded SDRAM size | Built-in 64MB |
 | Crypto engine |  AES, RSA, ECC, HMAC and SHA crypto accelerator |
 | RMII interface |  10/100 Mbps x2 |
 | USB 2.0 |  High Speed Host x1, High Speed Host/Device x1 |
@@ -81,7 +72,7 @@ Notice: Please install ICE driver for development and [NuMicro_ARM9_Device_Datab
 To execute below command in ENV window to download all rt-thread BSP SDK.
 
 ```bash
-git clone https://github.com/RT-Thread/rt-thread
+$ git clone https://github.com/RT-Thread/rt-thread
 ```
 
 ### 3.2 **Download Related packages**
@@ -89,10 +80,10 @@ git clone https://github.com/RT-Thread/rt-thread
 To execute below command in ENV window to download related packages.
 
 ```bash
-cd rt-thread
-cd bsp/nuvoton/nk-980iotg2d
-menuconfig --generate
-pkgs --update
+$ cd rt-thread
+$ cd bsp/nuvoton/nk-980iotg1d
+$ menuconfig --generate
+$ pkgs --update
 ```
 
 ### 3.3 **GCC building**
@@ -101,10 +92,10 @@ Do gcc building. After building, executable rtthread.bin is outputted in the pat
 
 ```bash
 $ cd rt-thread
-$ cd bsp/nuvoton/nk-980iotg2d
+$ cd bsp/nuvoton/nk-980iotg1d
 $ scons -j 8
 
-<Path-to-rt-thread>\bsp\nuvoton\nk-980iotg2d\rtthread.bin
+<Path-to-rt-thread>\bsp\nuvoton\nk-980iotg1d\rtthread.bin
 ```
 
 ### 3.4 **Produce MDK4 Project**
@@ -113,10 +104,10 @@ Produce MDK4 project file. After producing, project file is outputted in the pat
 
 ```bash
 $ cd rt-thread
-$ cd bsp/nuvoton/nk-980iotg2d
+$ cd bsp/nuvoton/nk-980iotg1d
 $ scons --target=mdk4 –s
 
-<Path-to-rt-thread>\bsp\nuvoton\nk-980iotg2d\project.uvproj
+<Path-to-rt-thread>\bsp\nuvoton\nk-980iotg1d\project.uvproj
 ```
 
 Notice: Please also install [MDK4 for Nuvoton ARM9 device pack](https://www.nuvoton.com/resource-download.jsp?tp_GUID=SW1820201207155701).
@@ -183,11 +174,7 @@ You can use Tera Term terminate emulator (or other software) to type commands of
 
 ## 7. **Resources**
 
-* [Download Board Schematics][2]
-* [Download TRM][3]
-* [Download NuWriter][4]
+* [Download NuWriter][2]
 
-  [1]: https://www.nuvoton.com/products/iot-solution/iot-platform/numaker-iiot-nuc980g2/?tab=5
-  [2]: https://www.nuvoton.com/resource-download.jsp?tp_GUID=UG132023080203213148
-  [3]: https://www.nuvoton.com/resource-download.jsp?tp_GUID=DA05-NUC980-1
-  [4]: https://github.com/OpenNuvoton/NUC980_NuWriter
+  [1]: https://www.nuvoton.com/products/iot-solution/iot-platform/numaker-iiot-nuc980g1/?tab=5
+  [2]: https://github.com/OpenNuvoton/NUC980_NuWriter
